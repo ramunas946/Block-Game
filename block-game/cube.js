@@ -32,6 +32,22 @@ class Cube {
 
 
     }
+    bottomkill() {
+        if (winHight - cubesHight === cubes[0].y) {
+
+
+            if (cubes[0].enemy === 0) {
+
+                score += 1;
+            } else {
+                score -= 1;
+            }
+            cubes.splice(0, 1);
+            cubeclicked--;
+            spawningtimer--;
+
+        }
+    }
 
 }
 function cubespawn() {
@@ -60,19 +76,6 @@ function cubespawn() {
     cubes.push(new Cube(x, y, w, h, c, enemy));
 
 
-    if (winHight - cubesHight === cubes[0].y) {
 
-
-        if (cubes[0].enemy === 0) {
-
-            score += 1;
-        } else {
-            score -= 1;
-        }
-        cubes.splice(0, 1);
-        cubeclicked--;
-        spawningtimer--;
-
-    }
 }
 

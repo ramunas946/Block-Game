@@ -1,3 +1,4 @@
+var focused = document.hasFocus();
 let speed = 0.5;
 let autospawntext = "on";
 let showbutton = 0;
@@ -97,10 +98,12 @@ function setup() {
 
     cubespawn();
 
+
     (function myLoop(i) {
 
         setTimeout(function () {
             cubespawn();
+
             spawningtimer++;
 
             if (--i) myLoop(i);
@@ -140,9 +143,12 @@ function draw() {
     button.scoreButtons();
 
     hello();
-    
+
+
+    cubes[0].bottomkill();
 
 }
+
 // timed spawnin
 (function myLoop(i) {
     setTimeout(function () {

@@ -31,13 +31,9 @@ function mousePressed() {
 
         if (showbutton === 0 && mouseX > 10 && mouseX < 80 && mouseY > 70 && mouseY < 90) {
             showbutton = 1
-            for (let i = 0; i < z; i++) {
-                cubes[i].y = -40
-            }
-            autospawntext = "off"
+
         } else {
-            showbutton = 0
-            autospawntext = "on"
+
         }
         if (showbutton === 0 && mouseX > 10 && mouseX < 80 && mouseY > 90 && mouseY < 110) {
             if (money < upgrade3cost) {
