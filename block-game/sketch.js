@@ -8,6 +8,7 @@ let k = 0;
 let y = 0;
 let z = 0;
 let c = 0;
+let g = 0;
 let damage = 100;
 
 let s = 0;
@@ -38,13 +39,34 @@ let shield = 0;
 let hp = 10;
 let spawningtime = 1000;
 let spawningtimer = 0;
+let cubeclicked = 0;
+
 //-------sizes--------
 
 let cubesWidth = 20;
 let cubesHight = 20;
 
+let x1 = 100;
+let y1 = -40;
+let w1 = 100;
+let h1 = 100;
+function hello() {
+
+    // need to calculate this shit
+    if (mouseX > x1 && mouseX < h1 * 2 && mouseY > y1 && mouseY < y1 * 2)
+        fill(0, 0, 255);
+
+    strokeWeight(2);
+    stroke(3);
 
 
+    y1++;
+
+    rect(x1, y1, w1, h1)
+    fill(0, 255, 0);
+    rect(mouseX - 5, mouseY - 5, 10, 10);
+
+}
 
 //---------------------------------------
 // to do
@@ -55,6 +77,7 @@ function setup() {
     createCanvas(winWidth, winHight);
     stroke(100);
     strokeWeight(0.5);
+
     button = new Button();
 
 
@@ -79,6 +102,7 @@ function setup() {
         setTimeout(function () {
             cubespawn();
             spawningtimer++;
+
             if (--i) myLoop(i);
         }, spawningtime)
     })(spawningtimer);
@@ -111,10 +135,12 @@ function draw() {
     if (nomoney === 1) {
         needMoreMoney();
     }
-    
+
     button.upgrades();
     button.scoreButtons();
 
+    hello();
+    
 
 }
 // timed spawnin
@@ -123,6 +149,7 @@ function draw() {
         z++;
         k++;
         y++;
+
         if (nomoney === 1) {
             s++;
             if (s === 5) {

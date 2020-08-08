@@ -78,12 +78,12 @@ function mousePressed() {
         }
     }
     if (hp > 0) {
-        for (let i = 0; i < spawningtimer; i++) {
-            if (cubes[i].clicked(mouseX, mouseY)) {
+        for (cubeclicked = 0; cubeclicked < spawningtimer; cubeclicked++) {
+            if (cubes[cubeclicked].clicked(mouseX, mouseY)) {
 
                 money = money + cubescost;
 
-                if (cubes[i].enemy === 1) {
+                if (cubes[cubeclicked].enemy === 1) {
 
                     score += 1;
                 } else {
@@ -95,16 +95,16 @@ function mousePressed() {
                             shield = 0;
                         }
                     }
-
-
                 }
-                cubes.splice(i, 1);
-                i--;
+                cubes.splice(cubeclicked, 1);
+                cubeclicked--;
                 spawningtimer--;
 
             }
         }
 
+
     }
+
 
 }

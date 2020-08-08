@@ -27,10 +27,15 @@ class Cube {
             return false;
         }
     }
+    colision() {
+
+
+
+    }
 
 }
 function cubespawn() {
-    let x = random(90+cubesWidth, winWidth-cubesWidth);
+    let x = random(90 + cubesWidth, winWidth - cubesWidth);
     let y = -40;
     let w = cubesWidth;
     let h = cubesHight;
@@ -44,7 +49,7 @@ function cubespawn() {
     }
     let randomcolor = random(0, 10);
 
-    if (randomcolor > 5) {
+    if (randomcolor > 1) {
         enemy = 1;
         c = "#00ff1e";
 
@@ -54,4 +59,20 @@ function cubespawn() {
     }
     cubes.push(new Cube(x, y, w, h, c, enemy));
 
+
+    if (winHight - cubesHight === cubes[0].y) {
+
+
+        if (cubes[0].enemy === 0) {
+
+            score += 1;
+        } else {
+            score -= 1;
+        }
+        cubes.splice(0, 1);
+        cubeclicked--;
+        spawningtimer--;
+
+    }
 }
+
